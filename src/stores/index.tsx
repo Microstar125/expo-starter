@@ -4,11 +4,15 @@ import './_hydration';
 import {UIStore} from './ui';
 import {CounterStore} from './counter';
 import {AuthStore} from './auth';
+import {OpenAIStore} from './openai';
+import {MarkingSchemeStore} from './markingscheme';
 
 class Stores {
   ui = new UIStore();
   counter = new CounterStore();
   auth = new AuthStore();
+  openai = new OpenAIStore();
+  schemes = new MarkingSchemeStore();
 }
 export const stores = new Stores();
 

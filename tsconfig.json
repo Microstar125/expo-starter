@@ -15,7 +15,8 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/*/index", "src/*"]
+      "@app/*": ["src/*/index", "src/*"],
+      "react": [ "./node_modules/@types/react" ]
     }
   },
   "exclude": [

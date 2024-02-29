@@ -1,6 +1,6 @@
 import 'expo-dev-client';
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {LogBox} from 'react-native';
+import {LogBox, StyleSheet} from 'react-native';
 
 import * as Linking from 'expo-linking';
 import {StatusBar} from 'expo-status-bar';
@@ -18,6 +18,7 @@ import {hydrateStores} from '@app/stores';
 import {initServices} from '@app/services';
 import {AppProvider} from '@app/utils/providers';
 import {useAppearance} from '@app/utils/hooks';
+import LinearGradient from 'react-native-linear-gradient';
 
 LogBox.ignoreLogs([
   'Require',
@@ -72,3 +73,12 @@ export default (): JSX.Element => {
     </GestureHandlerRootView>
   );
 };
+
+const styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+  },
+});

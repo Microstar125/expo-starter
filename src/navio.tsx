@@ -16,13 +16,17 @@ import {
 } from '@app/utils/designSystem';
 import {services} from '@app/services';
 import {AuthLogin} from './screens/auth/login';
+import {CreateMarkingScheme} from './screens/createMarkingScheme';
+import {SelectPages} from './screens/selectPages';
+import {SchemePage} from './screens/schemePage';
 
 // NAVIO
 export const navio = Navio.build({
   screens: {
     Main,
-    Settings,
-    Example,
+    CreateMarkingScheme,
+    SelectPages,
+    SchemePage,
 
     Playground,
     PlaygroundFlashList,
@@ -40,15 +44,7 @@ export const navio = Navio.build({
     AuthLogin,
   },
   stacks: {
-    MainStack: ['Main', 'Example'],
-    ExampleStack: {
-      screens: ['Example'],
-      navigatorProps: {
-        screenListeners: {
-          focus: () => {},
-        },
-      },
-    },
+    MainStack: ['Main', 'CreateMarkingScheme', 'SelectPages', 'SchemePage'],
     PlaygroundStack: {
       screens: ['Playground', 'PlaygroundFlashList', 'PlaygroundExpoImage'],
     },
@@ -63,56 +59,7 @@ export const navio = Navio.build({
     },
 
     // for auth flow
-    AuthFlow: ['AuthLogin', 'Example'],
-  },
-  tabs: {
-    // main 3 tabs
-    AppTabs: {
-      content: {
-        MainTab: {
-          stack: 'MainStack',
-          options: () => ({
-            title: 'Main',
-            tabBarIcon: getTabBarIcon('MainTab'),
-          }),
-        },
-        PlaygroundTab: {
-          stack: 'PlaygroundStack',
-          options: () => ({
-            title: 'Playground',
-            tabBarIcon: getTabBarIcon('PlaygroundTab'),
-          }),
-        },
-        SettingsTab: {
-          stack: ['Settings'],
-          options: () => ({
-            title: services.t.do('settings.title'),
-            tabBarIcon: getTabBarIcon('SettingsTab'),
-            tabBarBadge: 23,
-          }),
-        },
-      },
-    },
-
-    // tabs with drawer
-    // TabsWithDrawer: {
-    //   content: {
-    //     MainTab: {
-    //       stack: 'MainStack',
-    //       options: () => ({
-    //         title: 'Main',
-    //         tabBarIcon: getTabBarIcon('MainTab'),
-    //       }),
-    //     },
-    //     PlaygroundTab: {
-    //       drawer: 'DrawerForTabs',
-    //       options: () => ({
-    //         title: 'Playground',
-    //         tabBarIcon: getTabBarIcon('PlaygroundTab'),
-    //       }),
-    //     },
-    //   },
-    // },
+    AuthFlow: ['AuthLogin'],
   },
   drawers: {
     // main drawer
@@ -123,9 +70,6 @@ export const navio = Navio.build({
           options: {
             drawerType: 'front',
           },
-        },
-        Example: {
-          stack: ['Example'],
         },
         Playground: {
           stack: 'PlaygroundStack',
@@ -155,9 +99,6 @@ export const navio = Navio.build({
     //     },
     //   },
     // },
-  },
-  modals: {
-    ExampleModal: 'ExampleStack',
   },
   root: 'AppTabs',
   hooks: [useAppearance],

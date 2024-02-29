@@ -4,7 +4,7 @@ import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {DrawerNavigationOptions} from '@react-navigation/drawer';
 import {StatusBarStyle} from 'expo-status-bar';
 import {Appearance as RNAppearance, Platform} from 'react-native';
-import {Colors, Typography} from 'react-native-ui-lib';
+import {Assets, Colors, Typography} from 'react-native-ui-lib';
 
 import {stores} from '@app/stores';
 import {Icon, IconName} from '@app/components/icon';
@@ -15,7 +15,7 @@ import {Appearance} from '@app/utils/types/enums';
 // =============
 
 const colors = {
-  primary: '#5383b8', // blue
+  primary: '#ac1f24', // red
   secondary: '#469c57', // green
   accent: '#fed330', // yellow
   _black: Colors.rgba(20, 20, 20, 1),
@@ -53,6 +53,14 @@ export const configureDesignSystem = async (): PVoid => {
 
   Typography.loadTypographies({
     section: {fontSize: 26, fontWeight: '600'},
+  });
+  //Loading assets
+  Assets.loadAssetsGroup('test', {
+    image1: require('@app/exampledata/1703716133983-d97e7ab9-db40-43a4-b313-0f333437414a_1.jpg'),
+  });
+  //Loading assets
+  Assets.loadAssetsGroup('logo', {
+    logo: require('../../assets/logo.png'),
   });
 };
 

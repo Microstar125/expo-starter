@@ -6,12 +6,12 @@ export class UIStore implements IStore {
   appLaunches = 0;
 
   // Appearance
-  appearance: Appearance = 'system';
+  appearance: Appearance = 'light';
   get appearanceStr() {
     return appearanceToUI[this.appearance];
   }
   get isAppearanceSystem() {
-    return this.appearance === 'system';
+    return this.appearance === 'light';
   }
 
   // Language
